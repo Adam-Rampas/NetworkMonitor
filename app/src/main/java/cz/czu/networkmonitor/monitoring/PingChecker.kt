@@ -46,9 +46,7 @@ class PingChecker : NetworkChecker {
             }
 
             val output = process.inputStream.bufferedReader().use { it.readText() }
-            val exitCode = process.exitValue()
-
-            when(exitCode){
+            when(val exitCode = process.exitValue()){
                 0 -> {
                     val regex = Regex("""time[=<]([\d.,]+)\s*ms""")
 

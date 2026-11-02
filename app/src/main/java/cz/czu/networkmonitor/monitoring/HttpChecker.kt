@@ -8,11 +8,6 @@ import java.net.HttpURLConnection
 import java.net.SocketTimeoutException
 import java.net.URI
 
-/**
- * POZNÁMKA: URI jsme použili, protože je jednodušší pro získání hostitele a portu z URL
- * než ručně parsovat řetězec. URI také poskytuje metody pro získání jednotlivých částí URL, jako je hostitel, port, cesta atd.
- */
-
 
 class HttpChecker : NetworkChecker {
     override suspend fun checkNetwork(target: MonitorTarget): MonitorResult = withContext(Dispatchers.IO) {

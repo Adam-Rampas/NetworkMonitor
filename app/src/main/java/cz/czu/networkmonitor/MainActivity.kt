@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import cz.czu.networkmonitor.monitoring.DnsChecker
 import cz.czu.networkmonitor.monitoring.HttpChecker
 import cz.czu.networkmonitor.monitoring.MonitorTarget
+import cz.czu.networkmonitor.monitoring.NetworkPerimeterDetector
 import cz.czu.networkmonitor.monitoring.PingChecker
 import kotlinx.coroutines.launch
 
@@ -54,6 +55,10 @@ class MainActivity : AppCompatActivity() {
             Log.d("DNS_TEST", "Stav:  ${result3.status}")
             Log.d("DNS_TEST", "Odezva:  ${result3.responseTimeMs} ms")
             Log.d("DNS_TEST", "Chyba:  ${result3.errorMessage}")
+
+            val detector = NetworkPerimeterDetector(this@MainActivity)
+            val perimeter = detector.detect()
+            Log.d("NETWORK_PERIMETER", "Detected network perimeter: $perimeter")
         }
     }
 }
